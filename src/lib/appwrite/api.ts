@@ -11,6 +11,7 @@ import { ethers } from "ethers";
 // ============================== SIGN UP
 export async function createUserAccount(user: INewUser) {
   try {
+    debugger;
     const newAccount = await account.create(
       ID.unique(),
       user.email,
@@ -21,9 +22,9 @@ export async function createUserAccount(user: INewUser) {
     if (!newAccount) throw Error;
 
     const avatarUrl = avatars.getInitials(user.name);
-
-    const privateKey = ethers.Wallet.createRandom().privateKey;
-    const publicKey = ethers.utils.computePublicKey(privateKey);
+    const wallet = ethers.Wallet.createRandom();
+    const privateKey = wallet.privateKey.slice(2);
+    const walletAddress = wallet.address;
 
     const newUser = await saveUserToDB({
       accountId: newAccount.$id,
@@ -31,8 +32,8 @@ export async function createUserAccount(user: INewUser) {
       email: newAccount.email,
       username: user.username,
       imageUrl: avatarUrl,
-      privateKey,
-      publicKey,
+      privateKey: privateKey,
+      publicKey: walletAddress,
     });
 
     return newUser;
@@ -127,7 +128,7 @@ export async function signOutAccount() {
 
 // ============================== CREATE POST
 export async function createPost(post: INewPost) {
-  console.log(`post: ${JSON.stringify(post, null, 2)}`)
+  console.log(`post: ${JSON.stringify(post, null, 2)}`);
 
   try {
     // Upload file to appwrite storage
@@ -160,7 +161,7 @@ export async function createPost(post: INewPost) {
         tags: tags,
       }
     );
-    console.log(`new posttttttttttt: ${JSON.stringify(newPost, null, 2)}`)
+    console.log(`new posttttttttttt: ${JSON.stringify(newPost, null, 2)}`);
     if (!newPost) {
       await deleteFile(uploadedFile.$id);
       throw Error;
