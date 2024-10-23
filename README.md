@@ -34,4 +34,4 @@ Oathentic uses NFTs and POAPs to **engage and re-engage** with customers. By ana
 
 ---
 
-For more information on how to integrate with Oathentic or join the platform, please visit [Oathentic's official website](#https://oathentic.vercel.app/).
+For more information on how to integrate with Oathentic or join the platform, please visit [Oathentic's official website][https://oathentic.vercel.app/](#).
