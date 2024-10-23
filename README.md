@@ -1,7 +1,6 @@
-# Oathentic - A Web3-Integrated Social Media Platform
+# Oathentic - A Web3 Social Media Platform
 
-Oathentic is a cutting-edge social media platform that blends the purchasing of NFTs (tickets, memberships, art, and coupons) with user-generated content, including **verified reviews** tied to assets in users' wallets. This README provides an overview of the platform's features, the problem it solves, and its role in onboarding users into Web3.
-
+Oathentic is a cutting-edge social media platform that blends the purchasing of NFTs (tickets, memberships, art, and coupons) with user-generated content, including **verified reviews** tied to assets in users' wallets.
 ## Key Features
 
 ### 1. **NFT Purchases & Engagement**
